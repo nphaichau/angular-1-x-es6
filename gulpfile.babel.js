@@ -3,6 +3,7 @@
 import gulp from 'gulp';
 import browserify from 'browserify';
 import source from 'vinyl-source-stream';
+import buffer from 'vinyl-buffer';
 import cleanCss from 'gulp-clean-css';
 import uglify from 'gulp-uglify';
 import del from 'del';
@@ -37,13 +38,13 @@ gulp.task('style', function() {
     .pipe(gulp.dest('dist/assets/css'));
 });
 
-gulp.task('compile', ['delete-bundle'] function() {
+gulp.task('compile', ['delete-bundle'], function() {
   return browserify('app/application.js')
     .transform('babelify')
     .bundle()
-    .pipe(source('bundle.js'))
+    .pipe(source('app.bundle.js'))
     .pipe(buffer())
-    .pipe(gulp.dest('app.bundle.js'));
+    .pipe(gulp.dest('app'));
   /*return gulp
     .src('js/script.js')
     .pipe(plumber())
