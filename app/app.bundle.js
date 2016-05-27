@@ -37,16 +37,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var HomeController =
 /*@ngInject*/
 function HomeController($scope) {
-  var _this = this;
-
   _classCallCheck(this, HomeController);
 
   this.authorName = "Bobby Tables";
-  $scope.$watch(function () {
-    return _this.authorName;
-  }, function (newValue) {
-    // Do whatever you want to do
-  });
 };
 
 exports.default = HomeController;

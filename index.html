@@ -2,10 +2,17 @@
 <html>
 <head>
   <title>Demo for Gulp</title>
+  <!-- build:css css/style.min.css -->
+  <link rel="stylesheet" type="text/css" href="app/components/home/templates/home.css">
+  <!-- endbuild -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
 </head>
 <body ng-app="application">
   <div ui-view></div>
+
+  <!-- build:js app.min.js -->
+  <script src="temp/templates.js"></script>
   <script src="app/app.bundle.js"></script>
+  <!-- endbuild -->
 </body>
 </html>
