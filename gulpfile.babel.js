@@ -69,6 +69,9 @@ gulp.task('watch', function () {
     watch(['app/**/*.js', '!app/app.bundle.js'], batch(function (events, done) {
         gulp.start('compile', done);
     }));
+    watch(['app/**/*.tpl.html'], batch(function (events, done) {
+        gulp.start('html2js', done);
+    }));
 });
 
 gulp.task('default', ['delete', 'style', 'script']);
