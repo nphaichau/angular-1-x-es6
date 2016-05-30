@@ -19,7 +19,7 @@ var _routeConfig2 = _interopRequireDefault(_routeConfig);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var application = _angular2.default.module('application', [_angularUiRouter2.default, _main2.default.name]);
+var application = _angular2.default.module('application', [_angularUiRouter2.default, _main2.default.name, 'app-html-templates']);
 
 application.config(_routeConfig2.default).run(startApplication);
 
@@ -93,7 +93,7 @@ exports.default = function ($logProvider, $stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/home');
   $stateProvider.state('home', {
     url: '/home',
-    templateUrl: '../app/components/home/templates/home.tpl.html',
+    templateUrl: 'app/components/home/templates/home.tpl.html',
     controller: 'HomeController',
     controllerAs: 'homeCtrl'
   });

@@ -4,7 +4,7 @@ export default function($logProvider, $stateProvider, $urlRouterProvider) {
   $stateProvider
   .state('home', {
     url: '/home',
-    templateUrl: '../app/components/home/templates/home.tpl.html',
+    templateUrl: 'app/components/home/templates/home.tpl.html',
     controller: 'HomeController',
     controllerAs: 'homeCtrl'
   });

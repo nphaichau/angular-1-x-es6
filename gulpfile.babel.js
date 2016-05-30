@@ -16,6 +16,7 @@ import usemin from 'gulp-usemin';
 import rev from 'gulp-rev';
 import watch from 'gulp-watch';
 import batch from 'gulp-batch';
+import ngAnnotate from 'gulp-ng-annotate';
 
 let paths = {
   scripts: [''],
@@ -33,12 +34,12 @@ gulp.task('copy-resource', function() {
   console.log("Will be implemented later");
 });
 
-gulp.task('build', ['delete', 'copy-resource'], function() {
+gulp.task('build', ['delete', 'html2js', 'compile', 'copy-resource'], function() {
   return gulp
     .src('index.html')
     .pipe(usemin({
       css: [minifyCss(), rev()],
-      js: [uglify(), jsHint(), rev()]
+      js: [ngAnnotate(), uglify(), jsHint(), rev()]
     }))
     .pipe(gulp.dest('dist/'));
 });
@@ -60,7 +61,7 @@ gulp.task('compile', ['delete-bundle'], function() {
 
 gulp.task('html2js', function () {
     gulp.src('app/**/*.tpl.html')
-        .pipe(html2js('templates.js', {}))
+        .pipe(html2js('templates.js', {name: "app-html-templates"}))
         .pipe(gulp.dest('temp/'));
 });
 
